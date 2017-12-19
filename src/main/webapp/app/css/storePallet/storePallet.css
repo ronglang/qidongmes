@@ -1,0 +1,18 @@
+#InputArea{
+	margin-left:20px;
+}
+#QueryArea{
+	padding-top:5px;
+	padding-left:20px;
+	margin-left:20px;
+	margin-right:21px;
+	border-style:solid;
+	border-width:1;
+	border-color:#99BBE8;
+}
+#queryform{
+	padding:5px;
+}
+#grid{
+	margin-left:20px;
+}

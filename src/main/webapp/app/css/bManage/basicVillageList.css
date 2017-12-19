@@ -1,0 +1,68 @@
+.village_cont{
+	width: 99%;
+	height: 500px;
+}
+.village_serch{
+	width: 95%;
+	border-bottom: solid 1px #f4f4f4;
+	height: 50px;
+	margin: 0 auto;
+	padding-top: 10px
+}
+.vil_areacode{
+	width: 189px;
+	height: 23px;
+	border: solid 1px #C5D7FF;
+	border-radius: 20px;
+	position: relative;
+	top: 5px;
+	margin-right: 10px;
+}
+.vil_text{
+	width: 60px;
+	padding-right:0px;
+	margin-right:0px;
+	height: 23px;
+	align:right;
+	text-align:right;
+	position: relative;
+	top: 6px;
+}
+.vil_sele{
+	width: 100%;
+	border-radius: 20px;
+	border: none
+}
+.vil_inp{
+	width: 100%;
+	border-radius: 20px;
+	border: none
+}
+.village_button{
+	width: 95%;
+	height: 30px;
+	margin: 10px auto;
+}
+.image1{
+	margin-right: 10px;
+	
+}
+.village_table{
+	width: 95%;
+	height: 130px;
+	margin: 10px auto;
+}
+.vil_head{
+	text-align:center;
+	border: solid 1px gray;
+	width: 105px;
+	height: 35px;
+	background: #f4f4f4;
+}
+
+.village_table tr td{
+	text-align:center;
+	/* border: solid 1px gray; */
+	width: 105px;
+	height: 35px;
+}

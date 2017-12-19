@@ -1,0 +1,55 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"+ request.getServerName() + ":" + request.getServerPort()+ path + "/";
+	String craSeqParam_id = request.getParameter("id");
+%>
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<base href="<%=basePath%>">
+
+<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>craSeqParamEdit</title>
+
+<!-- 默认引用1 -->
+<link href="<%=basePath%>core/plugin/LigerUI/lib/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" /> 
+<link href="<%=basePath%>core/plugin/swfupload/css/default.css" rel="stylesheet" type="text/css" />
+<link href="<%=basePath%>core/css/public.css" rel="stylesheet" />
+<script>
+	var basePath  = '<%=basePath%>';
+	var routeName = "craSeqParamManage"; 
+	var row_id = "";
+	row_id =<%=craSeqParam_id%>;
+	var id = <%=craSeqParam_id%>;
+	var relation_id = "${relation_id}";
+</script>
+<script src="<%=basePath%>core/js/jquery-1.4.4.min.js" type="text/javascript"></script>
+
+<script src="<%=basePath%>core/plugin/LigerUI/lib/ligerUI/js/core/base.js" type="text/javascript"></script>
+ <script src="<%=basePath%>core/plugin/LigerUI/lib/ligerUI/js/ligerui.all.js" type="text/javascript"></script>
+
+<script src="<%=basePath%>core/plugin/LigerUI/lib/jquery-validation/jquery.validate.min.js" type="text/javascript"></script> 
+<script src="<%=basePath%>core/plugin/LigerUI/lib/jquery-validation/jquery.metadata.js" type="text/javascript"></script>
+<script src="<%=basePath%>core/plugin/LigerUI/lib/jquery-validation/messages_cn.js" type="text/javascript"></script>
+<!-- 默认引用1end -->
+
+<!-- 默认引用 -->
+<script src="<%=basePath%>core/js/cssBase.js" type="text/javascript"></script>
+<script src="<%=basePath%>app/js/craManage/craSeqParamEdit.js" type="text/javascript"></script>
+<!-- 默认引用end -->
+
+<script src="<%=basePath%>core/plugin/LigerUI/lib/ligerUI/js/plugins/ligerForm.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<form action="" id="form">
+	
+	</form>
+	
+</body>
+</html>
+

@@ -1,0 +1,202 @@
+@media screen and (min-width: 320px) {
+ a{
+ 	text-decoration:none;
+ 	color:#666;
+ 	}
+ a:hover{color:#666;}
+
+ .context{
+  	width:98%;
+  	margin: 1%;
+  }
+  .head{
+  	width:100%;
+  	height:30px;
+  	border-bottom:solid 1px #f1f1f1;
+  }
+  .color{
+  	background: #f1f1f1;
+  }
+  .input_main{
+  	width:100%;
+  	height:55px;
+  	margin-top: 3px;
+  }
+  .input_right{
+  	width: 66%;
+  	height:40px;
+  	margin-top:7.5px;
+  	border-radius:20px;
+  	/* float: right;  */
+  }
+  .input_text{
+  	width:75%;
+  	margin: 2.5px 0 2.5px 3px;
+  	border: none;
+  	height: 90%;
+  	font-size: 15px;
+  }
+  .input_image{
+  	margin: -15px 0
+  }
+  .main{
+  	font-size: 15px;
+	color: #333333;
+	text-align: center;
+	line-height: normal
+  }
+  .color{
+  	background: #f1f1f1
+  }
+  .nav_main{
+  	width: 100%;
+  	height: 120px;
+  }
+  .nav_list{
+  	width: 24%;
+  	height: 40px;
+	margin-top:13px;
+	margin-left:1px;
+  	float: left;
+  	background: white;
+	font-family: 'Heiti SC ϸ��', 'Heiti SC';
+	font-weight: 180;
+	font-style: normal;
+	font-size: 15px;
+	font-color:black;
+	line-height: 40px
+  }
+    .nav_list_red{
+  	width: 24%;
+  	height: 40px;
+	margin-top:13px;
+	margin-left:1px;;
+  	float: left;
+  	background: white;
+	font-family: 'Heiti SC ϸ��', 'Heiti SC';
+	font-weight:180;
+	font-style:normal;
+	font-color:red;
+	font-size: 15px;
+	line-height: 40px;
+	color: red;
+  }
+  
+  .text_list{
+  	width: 100%;
+  	height: auto;
+  }
+  .text_title{
+  	width: 100%;
+   	height:110px;
+  	border-bottom: solid 1px #f1f1f1
+  }
+  .text_imge{
+  	width:20%;
+  	height: 100%;
+  	float: left;
+  }
+  .text_info{
+  	float:right;
+  	width:78%;
+  	height: 100%;
+  	
+  }
+	.title{
+		font-size: 20px;
+		font-weight:bold;
+	}
+	.text_hr{
+		width: 100%;
+		height:10px;
+		background: #f1f1f1;
+		border-top:solid 1px #333333;
+		clear: left;
+	}
+	.text_hr1{
+		width: 100%;
+		height: 10px;
+		clear: left;
+	}
+	.input_image1{
+	  	margin-top:10px;
+	  	margin-right: 5px;
+  	}
+  	#tjobjct{
+		text-overflow : clip;  /* | ellipsis  */
+		width: 30%
+  	}
+  	
+  	.poor_main{
+  		width: 100%;
+  		height:100px;
+  		margin-top: 4px;
+  	}
+  	.poor_image{
+  		margin-top:5px;
+  		width: 25%;
+  		height: 90px;
+  	}
+  	.left{
+  		float: left;
+  	}
+  	.right{
+  		float: right;
+  	}
+  	.poor_info{
+  		width: 74%;
+  		height: 98px;
+  	}
+  	.poor_table{
+  		font-size: 14px;
+  		width: 100%
+  	}
+  	.data{
+  		color: red;
+  	}
+  	.poor_name{
+  		font-size: 14px;
+  	}
+  	.myhelp{
+  		width:35%;
+  		background: red;
+  		color: white;
+  		border: none;
+  		border-radius:3px;
+  		height:23px;
+  		line-height: 23px;
+  	/* 	box-shadow:0 0 0 white, 左边阴影  
+	    1px 0 1px #666666, 右边阴影  
+	    0 -1px 1px #666666, 顶部阴影  
+	    0 0 0 white; 底边阴影  */
+  	}
+  	#poor_address{
+  		width: 100%;
+  		display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  	}
+  	#poorAddress{
+  		font-size: 12px;
+  	}
+  	.item_area{
+  		width: 100%;
+  		height: auto;
+  		margin: 5px;
+  	}
+  	.area_butt{
+  		text-align:center;
+  		line-height:40px;
+  		width: 30%;
+  		height: 40px;
+  	}
+  	.poor_info span{
+  		font-size: 13px;
+  		line-height: 23px;
+  	}
+  	.helpbutton{
+  		width: 49%;
+  		height: 30px;
+  		border-right:solid 1px white;
+  		line-height:30px;
+  		text-align: center;
+  	}
+}

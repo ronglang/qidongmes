@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/* CSS Document */
+.cardbox{
+	margin:30px auto 0;
+	width:900px;
+	height:480px;
+	background-image:url(images/cardbg_03.png);
+	border:1px #f9d7d7 solid;
+	border-radius:20px;
+	}
+.cardbox h1{
+	margin:25px auto;
+	padding:0 50px 0 70px;
+	width:380px;
+	background:url(images/logo_07.png) left center no-repeat;
+	font-size:30px;
+	color:#d96436;
+	}
+.cardtable{
+	position:relative;
+	margin:0 auto;
+	border-right:1px #ededed solid;
+	border-bottom:1px #ededed solid;
+	background-color:white;
+	text-align:center;
+	color:#333;
+	}
+.cardtable td{
+	height:34px;
+	border-left:1px #ededed solid;
+	border-top:1px #ededed solid;
+	}
+.vollogo{
+	z-index:1;
+	position:absolute;
+	left:40%;
+	top:40%;
+	width:284px;
+	height:219px;
+	background-image:url(images/vollogo_11.png);
+	}
+	
+	/* 项目进度上报 */
+	.juzhong{
+		width:900px;
+		height:40px;
+		margin:30px auto;
+	/* 	background-color:red; */
+	}
+	.xiangmujinduBox{
+	
+		display:inline-block;
+		width:125px;
+		text-align:center;
+		line-height:30px;
+		height:30px;
+		border:1px solid #ccc;
+		border-radius:5px;
+		
+		color:black;
+	}
+	.xiangmujinduBox:hover{
+		color:gray;
+	}
+	
+	

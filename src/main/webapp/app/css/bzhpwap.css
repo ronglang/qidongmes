@@ -1,0 +1,49 @@
+html{
+	font-size: 10px;
+	-webkit-text-size-adjust:1rem;
+	-ms-text-size-adjust:1rem;
+	-moz-text-size-adjust:1rem;
+	}
+@media screen and (min-width:480px) and (max-width:639px) {html {font-size: 15px;}}
+@media screen and (min-width:640px) and (max-width:719px) {html {font-size: 20px;}}
+@media screen and (min-width:720px) and (max-width:749px) {html {font-size: 22.5px;}}
+@media screen and (min-width:750px) and (max-width:799px) {html {font-size: 23.5px;}}
+@media screen and (min-width:800px) and (max-width:959px) {html {font-size: 25px;}}
+@media screen and (min-width:960px) and (max-width:1079px) {html {font-size: 30px;}} 
+@media screen and (min-width:1080px) {html {font-size: 32px;}}
+body, div, dl,dt, dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td,select,img{
+	margin:0;
+	padding:0;
+	border:0;
+}
+.clear:after{
+	content:'';
+	display:block;
+	clear:both;
+	height:0;
+	visibility:hidden;
+}
+html,body{height:100%;}
+body{background-color: #fff;position: relative;}
+footer{
+	width:100%;
+	height:5rem;
+	background-color: #17A05D;
+	position:fixed;
+	bottom:0;
+}
+footer li{float:left;color:#fff;list-style: none;width:25%;text-align: center;line-height: 5rem;font-size: 2rem;}
+.li_cli{background-color: #0E6441;}
+.bc_col{width:100%;height:100%;overflow-y: scroll;overflow-x: hidden;}
+#Map{background-color: yellow;}
+#Report{background-color: #f00;}
+#Count{background-color: blue;}
+#Search ul{margin-top: 1rem;border-top:1px solid #000;}
+#Search li,#search_top{color:#000;font-size:2rem ;height:5rem;width:100%; text-align: center;border-bottom:1px solid #000;line-height: 5rem;}
+.jiantou{margin:0 2rem 0 2rem;}
+.right{float: right;}
+.left{float:left;}
+#search_in{position: relative;width:100%;height:100%;}
+input{width:20rem;border:1px solid #000000;height:3rem;margin:2rem 0 0 2rem;font-size: 2rem;padding-left: .5rem;}
+button{width:6rem;height:3rem;font-size: 2rem;background-color: #17A05D;line-height: 3rem;text-align: center;}
+.aps{padding-bottom:5rem;}

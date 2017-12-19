@@ -1,0 +1,64 @@
+/*  .tab_nav{ */
+/*         	height:24px; */
+/*         	width:100%; */
+/*         	background-color:#00D5B7; */
+/*         	padding:0 5px 0 5px; */
+/*         	position:fixed; */
+/*         	left:0; */
+/*         	top:0; */
+/*         	_position: absolute;   */
+/*        _clear: both;    */
+/*        _top:expression(eval(document.compatMode &&    */
+/*                document.compatMode=='CSS1Compat') ?    */
+/*                documentElement.scrollTop    */
+/*                +(documentElement.clientHeight-this.clientHeight) - 1    */
+/*                : document.body.scrollTop    */
+/*                +(document.body.clientHeight-this.clientHeight) - 1);  */
+/*         } */
+/*         .tab_nav li{ */
+/*         	float:left; */
+/*         	line-height:24px; */
+/*         	padding:0 10px 0 10px; */
+/*         	border-radius:5px 5px 0 0; */
+/*         	cursor:pointer; */
+/*         	margin-left:1px; */
+/*         	color:#fdfdfd; */
+/*         } */
+/*         .tab_nav li:hover{background-color:#fdfdfd;color:#000;} */
+/*        .tab_nav .li_first{background:#fdfdfd;color:#000;} */
+/*         .tab_table{margin-top:50px;} */
+.tab_nav{
+     		z-index:99;
+     		border:1px solid #ddd;
+        	height:27px;
+        	width:100%;
+/*         	padding-top:5px; */
+        	background-color:#f4f4f4;
+        	padding:0 5px 0 100px;
+        	position:fixed;
+        	left:0;
+        	top:0;
+        	_position: absolute;  
+       _clear: both;   
+       _top:expression(eval(document.compatMode &&   
+               document.compatMode=='CSS1Compat') ?   
+               documentElement.scrollTop   
+               +(documentElement.clientHeight-this.clientHeight) - 1   
+               : document.body.scrollTop   
+               +(document.body.clientHeight-this.clientHeight) - 1); 
+        }
+        .tab_nav li{
+       margin-top:2px; 
+        height:25px;
+        	float:left;
+        	line-height:28px;
+        	padding:0 10px 0 10px;
+        	cursor:pointer;
+        	background-color:#12D7BC;
+			margin-right:5px; 
+        	color:#fff;
+        }
+/*         .tab_nav li:hover{background-color:#fff;} */
+       .tab_nav .li_first{background:#fdfdfd;border:1px solid #ddd;border-bottom:0;color:#000;}
+        .tab_table{margin-top:70px;}
+        

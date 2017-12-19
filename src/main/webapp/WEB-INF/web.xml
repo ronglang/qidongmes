@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>mes</display-name>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:conf/applicationContext.xml,classpath:conf/jms/apache_activeMq.xml <!-- ,
+    	classpath:conf/dubbo/dubbo_provider.xml  --></param-value>
+  </context-param>
+  <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>classpath:log4j.properties</param-value>
+    </context-param>
+    <context-param>  
+	    <param-name>webAppRootKey</param-name>  
+	    <param-value>mes.root</param-value>  
+	</context-param> 
+    <context-param>
+        <param-name>log4jRefreshInterval</param-name>
+        <param-value>6000</param-value>
+    </context-param>
+    <!-- Spring Log4J config -->
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+    <!-- Spring 定时器 start -->
+    <!-- <listener>  
+        <listener-class>com.css.commcon.util.ContextListener</listener-class>  
+	</listener>  --> 
+    
+  <!-- Spring 编码过滤器 start -->
+    <filter>
+        <filter-name>characterEncoding</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterEncoding</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- Spring 编码过滤器 End -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+  </listener>
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/dispatcher.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>
+  <!-- activemq -->
+<!--   <servlet>
+  	<servlet-name>socketApacheMqReadServlet</servlet-name>
+  	<servlet-class>com.css.business.web.syswebsoket.servlet.MesApacheMqManuServlet</servlet-class>
+  	<load-on-startup>6</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>socketApacheMqReadServlet</servlet-name>
+    <url-pattern>/socketApacheMqReadServlet/*</url-pattern>
+  </servlet-mapping>    -->
+  
+  <!-- Socket通讯，系统已不再使用。这里注掉 -->
+<!--   <servlet>
+  	<servlet-name>mesSocketServerServlet</servlet-name>
+  	<servlet-class>com.css.common.servlet.MesSocketServerServlet</servlet-class>
+  	<load-on-startup>7</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>mesSocketServerServlet</servlet-name>
+    <url-pattern>/mesSocketServerServlet/*</url-pattern>
+  </servlet-mapping>   -->
+  
+  <servlet>
+  	<servlet-name>mesApacheMqReaderServlet</servlet-name>
+  	<servlet-class>com.css.common.servlet.MesApacheMqReaderServlet</servlet-class>
+  	<load-on-startup>8</load-on-startup>
+  </servlet>
+   <servlet>
+  	<servlet-name>startEhcacheServlet</servlet-name>
+  	<servlet-class>com.css.common.servlet.StartEhcacheServlet</servlet-class>
+  	<load-on-startup>7</load-on-startup>
+  </servlet>
+  
+<!-- <servlet>  
+    <servlet-name>XFireServlet</servlet-name>  
+    <servlet-class>  
+        org.codehaus.xfire.transport.http.XFireConfigurableServlet  
+    </servlet-class>  
+</servlet>  
+<servlet-mapping>  
+    <servlet-name>XFireServlet</servlet-name>  
+    <url-pattern>/servlet/XFireServlet/*</url-pattern>  
+</servlet-mapping>  
+<servlet-mapping>  
+    <servlet-name>XFireServlet</servlet-name>  
+    <url-pattern>/services/*</url-pattern>  
+</servlet-mapping>  -->
+  
+<welcome-file-list>
+	<welcome-file>mylogin.jsp</welcome-file>
+</welcome-file-list>
+</web-app>

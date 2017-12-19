@@ -1,0 +1,91 @@
+ *{
+            margin: 0;
+            padding: 0;
+        }
+       html,body{
+
+           width: 100%;
+           height: 99.5%;
+		   
+       }
+        body{
+            padding-top: 1px;
+            background-image: url("../images/loginImageTwo/login4.jpg");
+            background-size:cover;
+            background-size:100% 100%; 
+            background-repeat:no-repeat;
+            text-align:center; 
+        }
+    .mainDiv{
+    text-align:left;
+    min-width:408px;   
+    min-height:369px;
+    width: 408px;
+    height: 369px;
+    position: relative;
+    z-index: 3;
+    margin: 0 auto;
+    top: 25%;
+    background-image:url("../images/loginImageTwo/login_03(3).png");
+    background-repeat:no-repeat;
+    }
+    .loginInfoArea{
+    display:inline-block;
+    width: 406px;
+    height: 250px;
+    position: absolute;
+    bottom: 15px;
+    left:0;
+   /*  border:1px solid red; */
+    text-align: center;
+    }
+    
+    .doLogin{
+            width: 100%;
+            height: 35px;
+            border:1px solid #ccc;
+            border-top: 2px solid #ccc;
+            display: inline-block;
+          	margin-top:20px;
+            cursor: pointer;
+            background-image: url("../images/loginImageTwo/logindoLogin4_03.png");
+            background-size:cover;
+            /* background-size:100% 100%; */
+        }
+    
+    table{
+    margin-top:10%;
+    display:inline-block;
+    width:70%;
+    
+    }
+   td{
+   /* 	border:1px solid black;   */
+   }
+   .userInfo{
+		width:180px;   
+		height:25px;
+		margin-left:5px;
+		border-radius:2px;
+		border:1px solid #ccc;
+		border-top:2px solid #ccc;
+		border-bottom:2px solid #ccc;
+		
+   }
+   .yanzhengma{
+   		width:100px;
+   		margin-left:10px;		
+   }
+   .intro{
+   	position:relative;
+   	top:3px;
+   	margin-left:10px;
+   	
+   }
+   
+   
+   
+   
+   
+   
+   

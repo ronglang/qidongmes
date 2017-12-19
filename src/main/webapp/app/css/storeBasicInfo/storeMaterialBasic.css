@@ -1,0 +1,16 @@
+#InputArea{
+	margin-left:0;
+}
+#QueryArea{
+	padding-top:0;
+	padding-left:35px;
+	border-style:solid;
+	border-width:1;
+	border-color:#99BBE8;
+}
+#queryform{
+	padding:5px;
+}
+#DataList{
+	margin-left:0;
+}

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd"
+         updateCheck="true" monitoring="autodetect" dynamicConfig="true">
+    <diskStore path="java.io.tmpdir"/>
+	<!-- eternal:elements是否永久有效，如果为true，timeouts将被忽略，element将永不过期 -->
+	<cache name="tokenKeeperCache"  
+           maxElementsInMemory="1000"  
+           maxElementsOnDisk="10000000"  
+           eternal="true"  
+           overflowToDisk="true"  
+           memoryStoreEvictionPolicy="LFU"  >
+           <cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"/>
+    </cache>
+           
+	<cache name="websocketCmdCache"  
+           maxElementsInMemory="1000"  
+           maxElementsOnDisk="10000000"  
+           eternal="true"  
+           overflowToDisk="true"  
+           memoryStoreEvictionPolicy="LFU" >
+           <cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"/>
+    </cache>
+    <cache name="macCache"  
+           maxElementsInMemory="1000"  
+           maxElementsOnDisk="10000000"  
+           eternal="true"  
+           overflowToDisk="true"  
+           memoryStoreEvictionPolicy="LFU" >
+           <cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"/>
+    </cache>        
+    <cache name="macShowCache"  
+           maxElementsInMemory="1000"  
+           maxElementsOnDisk="10000000"  
+           eternal="true"  
+           overflowToDisk="true"  
+           memoryStoreEvictionPolicy="LFU" >
+           <cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"/>
+    </cache>        
+    <cache name="exceptionCache"  
+           maxElementsInMemory="1000"  
+           maxElementsOnDisk="10000000"  
+           eternal="true"  
+           overflowToDisk="true"  
+           memoryStoreEvictionPolicy="LFU" >
+           <cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"/>
+    </cache>        
+	<!-- 某元素在缓存中被过期expiry，只需满足timeToIdleSeconds（cache.get(key)）和timeToLiveSeconds（cache.put(element)）任何一个条件即可 -->
+	<cache name="verCodeCache"  
+           maxElementsInMemory="1000"  
+           maxElementsOnDisk="10000000"  
+           eternal="false"
+           overflowToDisk="true"  
+           timeToIdleSeconds="600"
+           timeToLiveSeconds="600"
+           memoryStoreEvictionPolicy="LFU"  >
+           <cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"/>
+    </cache>
+    
+    <!-- 集群RMI方式广播 -->
+   <cacheManagerPeerProviderFactory  
+	 class="net.sf.ehcache.distribution.RMICacheManagerPeerProviderFactory"  
+ 	 properties="peerDiscovery=automatic, multicastGroupAddress=224.1.1.1,  multicastGroupPort=1000, timeToLive=32">
+	</cacheManagerPeerProviderFactory>
+	
+	<!--  -->
+	<cacheManagerPeerListenerFactory
+        class="net.sf.ehcache.distribution.RMICacheManagerPeerListenerFactory"
+        properties="hostName=localhost, port=40001,
+        socketTimeoutMillis=2000"/>
+</ehcache>

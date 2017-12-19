@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* CSS Document */
+
+.vedio_container{width:730px;height:500px;display:none;top:200px;left:200px;}
+.vedio_top{width:730px;height:43px;background:url(../images/vedio_top.png) no-repeat 0 0;}
+.vedio_content{width:730px;height:425px;background:url(../images/vedio_middle.png) repeat-y 0 0; }
+.vedio_bottom{width:730px;height:35px;background:url(../images/vedio_bottom.png) no-repeat 0 0;}
+.vedio_bottom span{margin:0px 20px;float:right;font-size:12px;color:#333;}
+.vedio_top_title{margin:0px 50px;float:left;font-size:18px;color:#333;font-family:黑体;line-height:43px;vertical-align:middle;}
+.vedio_top_close{margin:7px 20px 0px;float:right;cursor:pointer;height:25px;width:25px;background:url(../../images/vedio_close1.png);}
+.vedio_content_top{width:730px;height:390px;margin:0px;}
+.vedio_content_left{float:left;width:520px;height:390px;margin:0px 10px;}
+.vedio_content_right{float:right;width:160px;height:390px;margin:0px 10px 0px 0px;}
+.vedio_content_bottom{width:730px;height:28px;margin:8px 0px;}
+.vedio_content_bottom ul{margin:0px 4px; padding:0px;list-style:none;height:28px;width:730px;line-height:28px;vertical-align:middle;}
+.vedio_content_bottom ul li{float:left;height:28px;width:85px;margin:0px 2px;}
+.vedio_content_bottom ul li a{float:left;height:28px;width:85px;background:url(../images/operating.png) no-repeat;}
+.vedio_content_bottom ul li a.operation1{background-position:-11px -8px;}
+.vedio_content_bottom ul li a.operation2{background-position:-107px -8px;}
+.vedio_content_bottom ul li a.operation3{background-position:-202px -8px;}
+.vedio_content_bottom ul li a.operation4{background-position:-298px -8px;}
+.vedio_content_bottom ul li a.operation5{background-position:-394px -8px;}
+.vedio_content_bottom ul li a.operation6{background-position:-490px -8px;}
+.vedio_content_bottom ul li a.operation7{background-position:-587px -8px;}
+.vedio_content_bottom ul li a.operation8{background-position:-685px -8px;}
+.clear{clear:both;}
+img{width:520px;height:390px;border:1px solid #cccccc;}
+.r_top{ margin:8px 5px;}
+.r_top table{border:0px;}
+.r_top table tr{border:0px;}
+.r_top table tr td{border:0px;}
+.r_top table tr td a{width:41px;height:41px;display:inline-block;background:url(../images/cloud.png) no-repeat;}
+.r_top table tr td a.cloud1{background-position:-9px -4px;}
+.r_top table tr td a.cloud2{background-position:-50px -4px;}
+.r_top table tr td a.cloud3{background-position:-91px -4px;}
+.r_top table tr td a.cloud4{background-position:-9px -45px;}
+.r_top table tr td a.cloud5{background-position:-50px -45px;}
+.r_top table tr td a.cloud6{background-position:-91px -45px;}
+.r_top table tr td a.cloud7{background-position:-9px -86px;}
+.r_top table tr td a.cloud8{background-position:-50px -86px;}
+.r_top table tr td a.cloud9{background-position:-91px -86px;}
+.r_top table tr td a.cloud10{background-position:-132px -85px;}
+.r_middle{margin:5px 10px;}
+.r_middle table{border:0px;}
+.r_middle table tr{border:0px; height:30px;}
+.r_middle table tr td a{width:45px;height:25px;background:url(../images/focus.png) no-repeat 0px 0px;display:inline-block;}
+.r_middle table tr td label{width:45px;height:25px;background:url(../images/focus.png) no-repeat 0px 0px;display:inline-block;}
+.r_middle table tr td a.focus1{background-position:-15px -7px;}
+.r_middle table tr td label.focus2{background-position:-60px -7px;}
+.r_middle table tr td a.focus3{background-position:-105px -7px;}
+.r_middle table tr td a.focus4{background-position:-15px -39px;}
+.r_middle table tr td label.focus5{background-position:-60px -39px;}
+.r_middle table tr td a.focus6{background-position:-105px -39px;}
+.r_middle table tr td a.focus7{background-position:-15px -68px;}
+.r_middle table tr td label.focus8{background-position:-60px -68px;}
+.r_middle table tr td a.focus9{background-position:-105px -68px;}
+.r_bottom{margin:0px;}
+.r_bottom label{font-size:14px;}
+.r_bottom table{border:0px; font-size:12px;}
+.r_bottom table tr{border:0px;}
+.r_bottom table tr td{border:0px;}
+select{width:60px;height:20px;}
+.r_bottom table tr td a{width:60px;height:30px;background:url(../images/get_setting.png) no-repeat 0px 0px; display:inline-block;}
+.r_bottom table tr td a.get{background-position:-11px -8px;}
+.r_bottom table tr td a.setting{background-position:-92px -8px;}
+
+
+
+.normalinput {
+	width: 100px;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+#OCXBody {
+	width: 520px;
+	height:390px;
+}
+.smallocxdiv {
+	float: left;
+	display:block;
+	width: 520px;
+	height: 390px;
+}

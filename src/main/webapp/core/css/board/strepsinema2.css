@@ -1,0 +1,67 @@
+body{
+	padding: 0;
+	margin: 0;
+	background-color: #096ECC;
+	font-size: 12px;
+	width: 100%;
+	height: 700px;
+}
+div{
+	padding: 0;
+	margin: 0;
+	
+}
+/*基础信息样式*/
+#head{
+	height: 80px;
+	width: 100%;
+	border-bottom: 2px solid #005A91;
+}
+#head .h1{
+	width: 20%;
+	float: left;
+	text-align: center;
+	font-size: 16px;
+	color: white;
+	line-height: 80px;
+	margin-left: 10px;
+}
+#head .h2{
+	float: left;
+	width: 60%;
+	font-size: 23px;
+}
+#head .h2 table{
+}
+#head .h2 table tr td.tbh{
+	color: yellow;
+}
+#head .h2 table tr td.tbb{
+	
+	line-height: 80px;
+	color: white;
+	padding-right:10px ;
+}
+#head .h3{
+	float: left;
+	width: 15%;
+}
+
+/*图例*/
+#contentimg{
+	width: 100%;
+	height: 700px;
+}
+#contentimg .left{
+}
+#contentimg .left .topimg{
+	height: 300px;
+}
+
+#contentimg .left .divbottom{
+	margin-top: 10px;
+	height: 300px;
+}
+#right{
+	float: right;
+}

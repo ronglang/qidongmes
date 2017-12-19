@@ -1,0 +1,171 @@
+body{
+	padding: 0;
+	margin: 0;
+	background-color: #096ECC;
+	font-size: 12px;
+	width: 100%;
+	height: 700px;
+}
+div{
+	padding: 0;
+	margin: 0;
+	
+}
+/*����Ϣ��ʽ*/
+#head{
+	height: 50px;
+	width: 100%;
+	border-bottom: 2px solid #005A91;
+}
+
+#head table{
+	width:100%;
+}
+#head table tr td.tbh{
+	color: yellow;
+	text-align: right;
+}
+#head table tr td.tbb{
+	line-height: 50px;
+	color: white;
+	padding-right:10px ;
+}
+
+#content {
+	display: block;
+}
+#content .con_head{
+	background-color: #278BC9;
+	height: 50px;
+	width: 100%;
+}
+#content .con_head h3{
+	margin: 0;
+	padding: 0;
+	width: 10%;
+	line-height: 50px;
+	color: white;
+	font-size: 16px;
+	float: left;
+	text-align: center;
+}
+#content .con_head div{
+	float: left;
+	line-height: 50px;
+	width: 30%;
+	font-size: 25px;
+	color: #66FF00;
+	text-align: center;
+}
+#content .con_info{
+	background-color: #0066FF;
+	height: 50px;
+	width: 100%;
+	
+}
+#content .con_info h3{
+	margin: 0;
+	padding: 0;
+	width: 10%;
+	line-height: 50px;
+	color: white;
+	font-size: 16px;
+	float: left;
+	text-align: center;
+}
+#content .con_info div{
+	float: left;
+	line-height: 50px;
+	width: 22%;
+	font-size: 25px;
+	color: #EFFF00;
+	text-align: center;
+}
+#content table{
+	width: 100%;
+}
+#content table tr{
+	height: 40px;
+}
+#content table tr td{
+	
+}
+#content table tr td.tbhead{
+	color: white;
+	font-size: 17px;
+	text-align: center;
+}
+#content table tr td.tbbody{
+	color: yellow;
+	font-size: 25px;
+	font-weight: bolder;
+}
+#content table tr.tbtr{
+	background-color: #0084D4;
+}
+
+#tbs1{
+	width:90%;
+	margin:0 auto;
+}
+#tbs1 tr{
+	height:35px;
+}
+#tbs1 tr td{
+	
+}
+#tbs1 tr td span{
+	display:inline-block;
+	color:white;
+	width:150px;
+	text-align: right;
+}
+#tbs1 tr td label{
+	color:#58F758;
+}
+
+
+@media only screen and (max-width : 800px){
+	#head .h1{
+		width: 20%;
+		font-size: 13px;
+	}
+	#head .h2{
+		width: 78%;
+		float: right;
+	}
+	#head .h2 table tr td.tbh{
+		font-size: 15px;
+	}
+	#head .h2 table tr td.tbb{
+		font-size: 15px;
+	}
+	#contentimg .right{
+		float: left;
+	}
+}
+@media only screen and (min-width : 800px) and (max-width: 1300px) {
+	
+	#head .h1{
+		width: 20%;
+		font-size: 15px;
+	}
+	#head .h2{
+		width: 78%;
+		float: right;
+	}
+	#head .h2 table tr td.tbh{
+		font-size: 18px;
+	}
+	#head .h2 table tr td.tbb{
+		font-size: 18px;
+	}
+	#contentimg .right{
+		float: left;
+	}
+	
+	#content .con_info div{
+		font-size: 18px;
+	}
+	
+}

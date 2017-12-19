@@ -1,0 +1,74 @@
+body{
+	margin: 0;
+	padding: 0;
+	height: 800px;
+	background-color: #1E99E1;
+}
+#first .top{
+	height: 80px;
+	width: 100%;
+	background-color: #096ECC;
+}
+#first .top table{
+	width: 100%;
+	color: white;
+}
+#first .top table tr{
+	height: 80px;
+}
+#first .top table tr td{
+	text-align: center;
+	font-size: 18px;
+}
+#first .head{
+	margin-top: 5px;
+	height: 60px;
+	width: 100%;
+	background-color: #0066FF;
+}
+#first .head table{
+	width: 100%;
+}
+#first .head table tr{
+	height: 60px;
+}
+#first .head table tr td{
+	text-align: center;
+	font-size: 18px;
+	color: yellow;
+}
+#first .head table tr th{
+	color: white;
+}
+
+#first .content{
+	margin-top: 15px;
+	width: 100%;
+	background-color: #0066FF;
+}
+#first .content table{
+	width: 100%;
+}
+#first .content table tr{
+	height: 60px;
+}
+#first .content table tr.con_tr_d{
+	background-color: #0084D4;
+}
+#first .content table tr.con_tr_s{
+	background-color: #0066FF;
+}
+#first .content table tr td{
+	text-align: center;
+	font-size: 22px;
+	color: yellow;
+}
+#first .content table tr td span{
+	color: white;
+}
+#first .content table tr td b{
+	color: yellow;
+}
+#content .content table tr th{
+	color: white;
+}

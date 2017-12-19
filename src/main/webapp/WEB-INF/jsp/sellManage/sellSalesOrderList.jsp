@@ -1,0 +1,572 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>订单管理</title>
+    <link href="<%= basePath%>app/js/sellManage/lib/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css" />  
+    <link rel="stylesheet" type="text/css" id="mylink"/>   
+    <link href="<%=basePath %>core/plugin/LigerUI/lib/ligerUI/skins/Gray/css/all.css" rel="stylesheet" type="text/css" />
+    <script src="<%= basePath%>core/js/jquery-1.4.4.min.js" type="text/javascript"></script>    
+    <script src="<%= basePath%>app/js/sellManage/lib/ligerUI/js/ligerui.all.js" type="text/javascript"></script>  
+    <script src="<%= basePath%>app/js/sellManage/lib/jquery.cookie.js"></script>
+    <script src="<%= basePath%>app/js/sellManage/lib/json2.js"></script>
+    <script src="<%= basePath%>app/js/indexdata.js" type="text/javascript"></script>
+<!--     <script src="<%= basePath%>app/js/sellManage/inSingleSystem/inSingleSystemList.js" type="text/javascript" ></script> -->
+	<%-- <script src="<%= basePath%>app/js/sellManage/sellSalesOrderList.js"></script> --%>
+    <script type="text/javascript">
+ 		var basePath = '<%= basePath%>';
+ 		var ligerDialogOpen;
+ 		var grid;
+ 		var seForm;
+ 		$(function(){
+ 			seForm();
+ 			loadGrid();
+ 		});
+
+ 		function loadGrid(){
+ 			var param = initParam();
+ 			grid = $("#myGrid").ligerGrid({
+ 				title:"生产通知单",
+ 				url : basePath + "rest/sellSalesOrderManageAction/toListPageData?param="+param,
+ 		        checkbox: true,
+ 		        allowAdjustColWidth :true,
+ 		        delayLoad:false,
+ 		        alternatingRow:true,
+ 		        rownumbers:true,
+ 		        rownumbersColWidth:60,
+ 		        columns: [
+ 		            { display: 'id', name: 'id',width:1,  hide:true},
+ 		            { display: '订单编号', name: 'orderCode'},
+ 		          	{ display: '订单类型', name: 'orderType'/* ,
+ 		            	render:function(row){
+ 		            		var html ="<a href=\"javascript:void(0)\" onclick=\"changePri('"+row.orderCode+"')\"> "+row.orderType+"</a>";;
+ 		            		return html;
+ 		            	} */
+ 		            },
+ 		            { display: '优先级', name: 'priLevel'},
+ 		            { display: '合同编号', name: 'contractCode'},
+ 		            { display: '交货日期', name: 'deliveryDate'},
+ 		            { display: '销售部经办人', name: 'salesManager'},
+ 		            { display: '订单录入人员', name: 'orderEntryClerk'},
+ 		            { display: '是否分解', name: 'genFlag'},
+ 		            {
+ 					    display: '操作',
+ 					    width:230,
+ 					    render: function (row)
+ 					    {
+ 					    	var html="";
+ 					    	if(row.genFlag == "已分解" || row.genFlag == "分解中"){
+ 					    		html += "<a href=\"javascript:void(0)\" onclick=\"detail('"+row.orderCode+"')\"> 查看详情</a>";
+ 					    	}else {
+ 					    		html += "<a href=\"javascript:void(0)\" onclick=\"edit('"+row.orderCode+"')\"> 编辑</a>";
+ 					    		//
+ 					    	}
+ 					    	
+ 					    	html += " || ";
+ 					    	html += "<a href=\"javascript:void(0)\" onclick=\"getCompletionRate('"+row.orderCode+"')\"> 完成率</a>";
+ 					    	html += " || ";
+ 					    	html += "<a href=\"javascript:void(0)\" onclick=\"changeType('"+row.orderCode+"')\"> 修改类型</a>";
+ 					    	html += " || ";
+ 						    html += "<a href=\"javascript:void(0)\" onclick=\"deleteBean('"+row.orderCode+"')\"> 删除</a>";
+ 				    		;
+ 					        return html;
+ 					    }
+ 					}
+ 		        ],
+ 		        width:'99%',
+ 		        height:'65%',
+ 		        onSelectRow:function (rowdata, rowid, rowobj){
+ 		        	////debugger;
+// 		        	$.ligerDialog.alert("rowdata:"+rowdata+";rowid:"+rowid+";rowobj"+rowobj);
+ 		        	loadSonGrid(rowdata, rowid, rowobj);
+ 		        },
+ 		        toolbar : {
+ 					items : [ 
+ 			          {text:"新增订单明细",click:insert,icon:"add"},
+ 			      //    {text:"分解为生产通知单",click:decomposeAdviceNote,icon:"add"},
+ 			          {text:"全部分解为工单",click:decomposePlaCourse,icon:"add"},
+ 			          {text:"分批次分解",click:batchDecomposePlaCourse,icon:"add"}
+ 			          
+ 					]
+ 				},
+ 				  isScroll: true, frozen:false,
+ 	              showTitle: false,width:'100%',
+ 	              detail: { onShowDetail: f_showOrder }
+ 			});
+ 		}
+ 		
+ 		function f_showOrder(row, detailPanel,callback){
+ 			 var grid = document.createElement('div'); 
+             $(detailPanel).append(grid);
+             $(grid).css('margin',10).ligerGrid({
+             	url:'<%=basePath %>rest/plaCourseManageAction/getPageList?orderCode='+row.orderCode,
+                 columns:
+                             [
+                             { display: '工单类型', name: 'wsType' ,width:300},
+                             { display: '工单号', name: 'wsCode',type:'text',width:300},
+                             { display: '规格型号', name: 'proGgxh',type:'text',width:300 },
+                             { display: '操作', width:300,render:function(row){
+                            	 var html = "";
+                            	 if (row.useFlag = '是') {
+									//已经下发 ,不能删除
+								}else{
+									html += "<a href=\"javascript:void(0)\" onclick=\"clearPlaCourse('"+row.wsCode+"')\"> 删除</a>";
+								}
+                            	 //debugger;
+                            	 return html;
+                             }}
+                             ], checkBox:true,isScroll: true, showToggleColBtn: false, width: '99%',usePager:false,height:200,
+                 	showTitle: false , onAfterShowData: callback,frozen:false
+             });  
+ 		}
+	
+ 		/**
+ 		* 删除工单
+ 		*/
+ 		function clearPlaCourse(wsCode){
+ 			$.ligerDialog.confirm("确定删除次工单",function(flag){
+ 				if (flag) {
+ 					var url = "<%= basePath%>rest/plaCourseManageAction/clearBean";
+					$.post(url,{wsCode:wsCode},function(data){
+						if(data.success){
+							$.ligerDialog.success(data.msg);
+						}else{
+							$.ligerDialog.error(data.msg);
+						}
+					},"json");
+				}
+ 			});
+ 		}
+ 		/**
+ 		* 分解单个订单
+ 		*/
+ 		function batchDecomposePlaCourse(){
+ 			var beans = grid.getSelectedRows();
+ 			if(beans.length != 1){
+ 				$.ligerDialog.warn('请选择一个订单进行分解');
+ 				return;
+ 			}
+ 			if(beans[0].genFlag =='已分解'){
+ 				$.ligerDialog.warn('已分解的不能再次分解');
+ 				return;
+ 			}
+ 			var orderCode = beans[0].orderCode;
+ 			 ligerDialogOpen = $.ligerDialog.open({
+ 				title:"批次分解",
+ 				url:basePath+"rest/sellSalesOrderManageAction/toBatchDecompose?orderCode="+orderCode,
+ 				type:'question' ,
+ 				width :1000,
+ 				height:400,
+ 				buttons :[
+ 				          {
+ 					        	 text:"确定分解",onclick:function(i,d){
+ 					        		 d.frame.batchDecompose();
+ 					        		grid.reload() ;
+ 					        	 }
+ 					          },
+ 					         
+ 					         { 
+ 					        	 text: '取消', onclick: function(i,d){ ligerDialogOpen.close();;}
+ 					         }
+ 					        
+ 				]
+ 			});
+ 			
+ 		}
+ 		/**
+ 		 * 分解成工单
+ 		 */
+ 		function decomposePlaCourse(){
+ 			////debugger;
+ 			var orders = grid.getSelectedRows() ;
+ 			var datas = [];
+ 			if(orders.length==0){
+ 				$.ligerDialog.alert("请选择要分解的订单");
+ 				return;
+ 			}
+ 			for(var i =0;i < orders.length;i++){
+ 				if (orders[i].genFlag == "已分解" /* || orders[i].genFlag == "分解中" */ ) {
+ 					$.ligerDialog.warn("已分解订单不能全部分解分解");
+ 					return;
+ 				}
+ 				datas[i] = orders[i].orderCode;
+ 			}
+ 			$.ligerDialog.confirm("是否确认分解", "确认信息", function(boo){
+ 				/*if(boo){//表示需要使用库存
+ 					datas.push("lock=true");
+ 				}*/
+ 				if(!boo){
+ 					return;
+ 				}
+ 				var dd = JSON.stringify(datas);
+ 				$.post(basePath+"rest/sellSalesOrderManageAction/decomposePlaCourse",{param:dd},function(data){
+ 					if(data.success){
+ 						$.ligerDialog.success("分解成功", "提示内容", function(){});
+ 						grid.reload() ;
+ 						ligerDialogOpen.close();
+ 					}else{
+ 						$.ligerDialog.success("分解失败", "提示内容", function(){});
+ 						ligerDialogOpen.close();
+ 					}
+ 				},"json");
+ 			});
+ 		}
+
+
+ 		/**
+ 		 * 根据订单编号，查看
+ 		 * @param orderCode
+ 		 */
+ 		function getCompletionRate(orderCode){
+ 			//alert(orderCode);
+ 			$.ajax({
+ 				url: basePath+"rest/sellSalesOrderManageAction/getCompletionRate",
+ 				dataType: 'json',
+ 				data:"orderCode="+orderCode,
+ 				type: "post",
+// 				contentType:"application/json",
+ 				success:function(data){
+ 					if(data.success){
+ 						$.ligerDialog.success(data.data, "提示内容", function(){});
+ 						grid.reload() ;
+ 						//ligerDialogOpen.close();
+ 					}else{
+ 						$.ligerDialog.success("获取失败", "提示内容", function(){});
+ 						//ligerDialogOpen.close();
+ 					}
+ 				}
+ 			});
+ 		}
+
+ 		/**
+ 		 * 分解为生产通知单
+ 		 * 可以传入一条或多条订单，分解为相应的生产通知单
+ 		 */
+ 		function decomposeAdviceNote(){
+ 			var orders = grid.getSelectedRows() ;
+ 			var datas = [];
+ 			if(orders.length==0){
+ 				$.ligerDialog.alert("请选择要分解的订单");
+ 				return;
+ 			}
+ 			for(var i =0;i < orders.length;i++){
+ 				$.ligerDialog.alert(orders[i].orderCode);
+ 				datas.push(orders[i].orderCode);
+ 			}
+ 			
+ 			////debugger;
+ 			$.ligerDialog.confirm("是否选择系统自由库存，锁定为备货", "确认信息", function(boo){
+ 				if(boo){//表示需要使用库存
+ 					datas.push("lock=true");
+ 				}
+ 				$.ajax({
+ 					url: basePath+"rest/sellSalesOrderManageAction/decomposeAdviceNote",
+ 					dataType: 'json',
+ 					data:JSON.stringify(datas),
+ 					type: "post",
+ 					contentType:"application/json",
+ 					success:function(data){
+ 						if(data.success){
+ 							$.ligerDialog.success("分解成功", "提示内容", function(){});
+ 							grid.reload() ;
+ 							ligerDialogOpen.close();
+ 						}else{
+ 							$.ligerDialog.success("分解失败", "提示内容", function(){});
+ 							ligerDialogOpen.close();
+ 						}
+ 					}
+ 				});
+ 			});
+ 			
+ 		}
+
+ 		/**
+ 		 * 去详情页面
+ 		 * @param orderCode 订单号
+ 		 * @param flag 是否分解  true已分解,false 未分解
+ 		 */
+ 		function detail(orderCode){
+ 			//alert(orderCode);
+ 			ligerDialogOpen = $.ligerDialog.open({
+ 				title:"订单详情记录",
+ 				url:basePath+"rest/sellSalesOrderManageAction/toDetailRecord?orderCode="+orderCode,
+ 				type:'question' ,
+ 				width :1000,
+ 				height:500,
+ 				buttons :[
+ 				         {
+ 				        	 text:"确定",onclick:function(){
+ 				        		 ligerDialogOpen.close();
+ 				        	 }
+ 				         }
+ 				]
+ 			});
+ 		}
+
+ 		/**
+ 		 * 去修改页面
+ 		 * @param orderCode
+ 		 */
+ 		function edit(orderCode){
+ 			ligerDialogOpen = $.ligerDialog.open({
+ 				title:"修改订单记录",
+ 				url:basePath+"rest/sellSalesOrderManageAction/toEditRecord?orderCode="+orderCode,
+ 				type:'question' ,
+ 				width :1000,
+ 				height:500,
+ 				buttons :[
+ 				          {
+ 					        	 text:"增加明细",onclick:function(i,d){
+ 					        		 d.frame.addSonData();
+ 					        	 }
+ 					          },
+ 					          {
+ 					        	  text:"确定修改明细",onclick:function(i,d){
+ 						        		 d.frame.editSonData();
+ 						        	 }
+ 					          },
+ 					         { 
+ 					        	 text: '保存', onclick: function(i,d){saveOrUpdate(i,d);}
+ 					         },
+ 					         {
+ 					        	 text:"取消",onclick:function(){
+ 					        		 ligerDialogOpen.close();
+ 					        	 }
+ 					         }
+ 				]
+ 			});
+ 		}
+ 		/**
+ 		 * 新增订单,包括订单明细内容
+ 		 */
+ 		function insert(){
+ 			ligerDialogOpen = $.ligerDialog.open({
+ 				title:"新增订单记录",
+ 				url:basePath+"rest/sellSalesOrderManageAction/insertRecord",
+ 				type:'question' ,
+ 				width :1000,
+ 				height:500,
+ 				buttons :[
+ 				          {
+ 				        	 text:"增加明细",onclick:function(i,d){
+// 				        		 alert("i-->"+i+";d-->"+d+d.frame.tempString);
+ 				        		 ////debugger;
+ 				        		 d.frame.addSonData();
+ 				        	 }
+ 				          },
+ 				         { 
+ 				        	 text: '保存', onclick: function(i,d){saveOrUpdate(i,d);}
+ 				         },
+ 				         {
+ 				        	 text:"取消",onclick:function(){
+ 				        		 ligerDialogOpen.close();
+ 				        	 }
+ 				         }
+ 				]
+ 			});
+ 		}
+ 		/**
+ 		 * 保存
+ 		 */
+ 		function save(i,d){
+ 			////debugger;
+ 			var data = d.frame.getAllSaveDatas();
+ 			var orderCode = d.frame.getOrderCode();
+ 			////debugger;
+ 			if(d.frame.checkOrderCode(orderCode)){//判断订单编号是否存在,
+ 				return;
+ 			}
+ 			
+// 			return ;
+ 			$.ajax({
+ 				url: basePath+"rest/sellSalesOrderManageAction/saveSellSalesOrderData",
+ 				dataType: 'json',
+ 				data:"mainData="+JSON.stringify(data[0])+"&sonDatas="+JSON.stringify(data[1]) ,
+ 				type: "post",
+// 				contentType:"application/json",
+ 				success:function(data){
+ 					if(data.success){
+ 						$.ligerDialog.success("保存成功", "提示内容", function(){});
+ 						grid.reload() ;
+ 						ligerDialogOpen.close();
+ 					}else{
+ 						$.ligerDialog.success("保存失败", "提示内容", function(){});
+ 						ligerDialogOpen.close();
+ 					}
+ 				}
+ 			});
+ 			
+ 		}
+
+ 		function saveOrUpdate(i,d){
+ 			////debugger;
+ 			var data = d.frame.getAllSaveDatas();
+ 			debugger;
+ 			//data = data.replace(/\+/g,"%2B");
+ 			var orderCode = d.frame.getOrderCode();
+ 			//data=data.replace(/\+/g,"%2B");
+ 			////debugger;
+ 			if(d.frame.checkOrderCode(orderCode)){//判断订单编号是否存在,
+ 				return;
+ 			}
+// 			return ;
+ 			$.ajax({
+ 				url: basePath+"rest/sellSalesOrderManageAction/saveOrUpdateBean",
+ 				dataType: 'json',
+ 				data:"mainData="+JSON.stringify(data[0]).replace(/\+/g,"%2B")+"&sonDatas="+JSON.stringify(data[1]).replace(/\+/g,"%2B") ,
+ 				type: "post",
+// 				contentType:"application/json",
+ 				success:function(data){
+ 					if(data.success){
+ 						$.ligerDialog.success("保存成功", "提示内容", function(){});
+ 						grid.reload() ;
+ 						ligerDialogOpen.close();
+ 					}else{
+ 						$.ligerDialog.success("保存失败", "提示内容", function(){});
+ 						ligerDialogOpen.close();
+ 					}
+ 				}
+ 			});
+ 			
+ 		}
+ 		/**
+ 		 * 根据订单id或者订单编号，查询订单明细
+ 		 * @param rowdata
+ 		 * @param rowid
+ 		 * @param rowobj
+ 		 */
+ 		function loadSonGrid(rowdata, rowid, rowobj){
+ 			var data = new Object();
+ 			data.orderCode = rowdata.orderCode;
+// 			alert("dataGrid");
+ 			$("#sonGrid").ligerGrid({
+ 				title:"订单明细",
+ 				url : basePath + "rest/sellSalesOrderDetailsManageAction/getListPageData",
+ 		       // checkbox: true,
+ 		        allowAdjustColWidth :true,
+ 		        delayLoad:false,
+ 		        alternatingRow:true,
+ 		        rownumbers:true,
+ 		        rownumbersColWidth:60,
+ 		        parms :data,
+ 		        width:'99%',
+ 		        height:'40%',
+ 		        columns: [
+ 		            { display: 'id', name: 'id',width:1,  hide:true},
+ 		            { display: '订单编号', name: 'orderCode'},
+ 		         //   { display: '交货日期', name: 'deliveryDate'},
+ 		            { display: '产品规格型号', name: 'proGgxh'},
+ 		            { display: '每轴长度', name: 'als'},
+ 		            { display: '轴数', name: 'axisNumber'},
+ 		            { display: '已分解轴数', name: 'alreadyAxisNum'},
+ 		            { display: '颜色', name: 'proColor'},
+ 		            { display: '创建人', name: 'createBy'},
+ 		            { display: '创建时间', name: 'createTime'},
+ 		           // { display: '单位', name: 'unit'},
+ 		            { display: '总长度', name: 'totalLength'}
+ 		        ]
+ 		        
+ 			});
+
+ 		}
+
+
+ 		function deleteBean(orderCode){
+ 			$.ligerDialog.confirm("确定删除?","确认信息",function(flag){
+ 				if(!flag){
+ 					return;
+ 				}
+ 				$.post(basePath+"rest/sellSalesOrderManageAction/clearBean",{orderCode:orderCode},function(data){
+ 					if(data.success){
+ 						$.ligerDialog.success(data.msg);
+ 						loadGrid();
+ 					}else {
+ 						$.ligerDialog.error(data.msg);
+ 					}
+ 				},"json");
+ 				
+ 			});
+ 		}
+
+ 		var seForm;
+ 		function initParam(){
+ 			var start = $("[name=start]").val();
+ 			var end = $("[name=end]").val();
+ 			var data = seForm.getData();
+ 			data.start = start ;
+ 			data.end = end;
+ 			return JSON.stringify(data);
+ 		}
+ 		var flagData = [{id:"已分解",text:"已分解"},{id:"未分解",text:"未分解"}];
+ 		function seForm(){
+ 			seForm = $("#form2").ligerForm({
+ 		        inputWidth: 120, labelWidth: 100, space:10,
+ 		        fields: [
+ 		        	{ display: "是否已分解", name: "genFlag",  newline:true,type: "select" ,options: { data: flagData}},
+ 		        	{ display: "合同编号", name: "contractCode", newline:false, type: "text"},
+ 		        	{ display: "订单编号", name: "orderCode", newline:false, type: "text"},
+ 		        	{ display: "交货日期: 从", name: "start",  newline:false,type: "date",editor:{showTime:true,format:"yyyy-MM-dd"} },
+ 		        	{ display: "到", name: "end",labelWidth: 30,  newline:false,type: "date" ,editor:{showTime:true,format:"yyyy-MM-dd"}},
+ 		        ],	
+ 		    });
+ 			//liger.get('scCode').setDisabled(); //设置只读
+ 		}
+
+ 		/**
+ 		*修改类型
+ 		*/
+ 		function changeType(orderCode){
+ 			ligerDialogOpen = $.ligerDialog.open({
+ 				title:"修改类型及优先级",
+ 				url:basePath+"rest/sellSalesOrderManageAction/toChangeOrderType?orderCode="+orderCode,
+ 				type:'question' ,
+ 				width :1000,
+ 				height:250,
+ 				buttons :[
+ 				          {
+ 				        	 text:"确定修改",onclick:function(i,d){
+ 				        		var flag =  d.frame.save();
+ 				        		if (flag) {
+ 				        			ligerDialogOpen.close();
+								}
+ 				        		grid.reload();
+ 				        	 }
+ 				          },
+ 				         {
+ 				        	 text:"取消",onclick:function(){
+ 				        		 ligerDialogOpen.close();
+ 				        		 grid.reload();
+ 				        	 }
+ 				         }
+ 				]
+ 			});
+ 		}
+    </script> 
+<style type="text/css"> 
+</style>
+</head>
+<body style="padding:0px;background:#EAEEF5;">  
+	<!-- 查询条件,此处暂时不写代码 -->
+	<div id="fo" style="text-align: center;width: 100%;position: relative;"  >
+		<form id="form2" action="" >
+		</form>
+		<div class="liger-button" id = 'tj' onclick="loadGrid()" style="float: right;position: absolute;right: 160px;top: 1px; ">提交</div>
+	</div>
+	<!-- <form id="myForm"></form> -->
+	
+	<!-- 主表grid -->
+	<div id="myGrid"></div>
+	<hr style="border:1px solid red;"/>
+	<!-- 从表grid -->
+	<div id="sonGrid"></div>
+</body>
+</html>
+

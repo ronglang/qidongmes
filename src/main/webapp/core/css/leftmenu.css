@@ -1,0 +1,51 @@
+@charset "UTF-8";
+/* CSS Document */
+.menuSec{
+	margin:0;
+	padding:0;
+	width:200px;
+	line-height:40px;
+	text-align:left;
+	}
+.menuSec li{
+	padding-left:50px;
+	width:150px;
+	height:40px;
+	list-style:none;
+	border-bottom:1px #dbdbdb solid;
+	background-color:#f0f0f0;
+	font-size:14px;
+	font-family:"Microsoft Yahei";
+	color:#666666;
+	}
+.menuSec li:hover{
+	background-color:#e0e0e0;
+	}
+.menuSec .menu-clicked{
+	background-color:#e0e0e0;
+	}
+.menuFirst{
+	padding-left:20px;
+	width:180px;
+	height:40px;
+	line-height:40px;
+	background-color:#2784cc;
+	border-bottom:1px #1e69a3 solid;
+	font-family:"Microsoft Yahei";
+	font-size:16px;
+	color:white;
+	
+}
+.showMenu{
+	background-image:url(../img/show_03.png);
+	background-repeat:no-repeat;
+	background-position:170px center;
+}
+.hideMenu{
+	background-image:url(../img/hide_03.png);
+	background-repeat:no-repeat;
+	background-position:170px center;
+}
+.menuSec .last-menu{
+	border-bottom:none;
+	}

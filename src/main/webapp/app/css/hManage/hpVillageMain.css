@@ -1,0 +1,17 @@
+.vil_sele{
+	width: 100%;
+	border-radius: 20px;
+}
+.operaTd{
+	width: 100px;
+	text-align: center;
+	height: 30px;
+	
+}
+.operaTd span{
+	font-family: 'Heiti SC Light', 'Heiti SC';
+	font-weight: 200;
+	font-style: normal;
+	color: #666666;
+	line-height: 30px;
+}

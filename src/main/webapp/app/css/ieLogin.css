@@ -1,0 +1,23 @@
+.loginInfo{
+	width:400px !important;
+}
+.loginArea{
+	margin-top:12% !important;
+}
+.mainDiv{
+	margin: 0 auto;
+	margin-left:10%
+}
+.rightBg{
+	height:100%;
+}
+.loginInfo{
+	height:340px !important;
+}
+.loginInfo .userName,.loginInfo .passWord,.loginInfo .yanzhengma{
+	line-height:30px !important;
+}
+.loginInfo .yanzhengma{
+	width: 80px !important;
+	 
+}

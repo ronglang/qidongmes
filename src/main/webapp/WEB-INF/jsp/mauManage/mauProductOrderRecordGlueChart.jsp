@@ -1,0 +1,183 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title></title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+<%-- <link href="<%=basePath %>app/css/bootstrap.min1.css" rel="stylesheet" type="text/css" /> --%>
+<script src="<%=basePath %>core/js/echarts.min.js"></script>
+<script src="<%=basePath%>core/js/jquery.js"></script>
+<style type="text/css">
+#title{
+float:left;
+}
+#span-a{
+ font-size:20px;
+ font-weight: 600;
+ font-family: inherit;
+ color:purple;
+}
+#number{
+	width:30px;
+	height:21px;
+	margin-top:5px;
+	background: red;
+	float: left;
+	text-align: center;
+}
+</style>
+<script>var basePath  = '<%=basePath%>';</script>
+</head>
+  
+  <body>
+  <div id="title"><div id="number">2</div><span id="span-a">今日任务达成情况</span></div>
+    <div id="temp" style="height: 295px;width:100%;"></div>
+  </body>
+  <script type="text/javascript">
+var legends = [];
+var series = [];
+var axis = [];
+var option ;
+var myChart ;
+$(function() {
+   	$.ajax({
+   		type : "post"  ,
+        async : false, //同步执行
+        url : basePath+"rest/mauProductOrderRecordManageAction/getChartDate?requestType=mapuser",
+        dataType : "json", //返回数据形式为json
+        success : function(vo) {
+        	if(vo!=null){
+        		load(vo);
+        	}
+        },
+        error : function() {
+			alert("图表数据加载失败");
+			myChart.hideLoading();
+		}
+   	});
+   	myLoad();
+  });
+  function myLoad(){
+  	var basePath = "<%=basePath%>";
+		var urlPirfex = basePath.substring(7, basePath.length);
+		var url = "ws://"+urlPirfex+"productDepartmentChartWebSocket";
+		var webSocket = new WebSocket(url);
+		webSocket.onerror = function(event) {
+			onError(event);
+		};
+	
+		webSocket.onopen = function(event) {
+			onOpen(event);
+		};
+	
+		webSocket.onmessage = function(event) {
+			onMessage(event);
+		};
+	
+		function onMessage(event) {
+			//在此处将数据封装到页面
+			var josnBean = eval('('+event.data+')');
+			if("true"==josnBean){
+				window.location.reload();
+			}
+		}
+		function onOpen(event) {
+			//TODO 发送房间号到后台去,获取房间号
+			webSocket.send('${id}');
+// 			document.getElementById('data').innerHTML = '<br />' + ""+"start";
+		}
+	
+		function onError(event) {
+	// 		alert(event.data);
+		}
+  }
+  
+  function load(vo){
+	  /* displayVo.setAreas(areas);
+		displayVo.setDataList(data); */
+		// 初始化参数
+		//1.x轴
+		createAreas(vo);
+		//2.图例
+		createLegends(vo);
+		//3.数据
+		createData(vo);
+ 		option = {
+        		color: ['#3398DB'],
+ 			    tooltip: {
+ 			        trigger: 'axis'
+ 			    },
+ 			    legend: {
+ 			        data:['']
+ 			    },
+ 			    toolbox: {
+ 			        show: true,
+ 			        feature: {
+ 			            saveAsImage: {}
+ 			        }
+ 			    },
+ 			    xAxis:  {
+ 			        type: 'category',
+ 			        boundaryGap: true,
+ 			        data: axis
+ 			    },
+ 			   yAxis : [
+ 				        {
+ 				             axisLabel: {
+ 	                                formatter: '{value} （%）'
+ 	                            }
+ 				        }
+ 				    ],
+ 			    series: series
+
+        };
+		myChart = echarts.init(document.getElementById('temp'));
+		myChart.setOption(option);
+  }
+  
+  function createLegends(vo){
+	  legends = [''];
+	 
+  }
+  
+  function createAreas(vo){
+	  axis = vo.areas;
+  }
+  
+  var index = 0;
+	function createData(map) {
+		series = [];
+		var data = map.dataList;
+/* 		debugger; */
+		//初始化数据，全部设置为10;
+		var obj = new Object();
+		obj.name = legends;
+		obj.type = 'bar';
+		obj.barWidth = '20%';
+		obj.itemStyle = {
+			normal : {
+			label : {
+			show : true,
+			position : 'inside'
+				}
+			}
+		};
+		obj.data =data;
+		series.push(obj);
+	/* 	debugger; */
+
+	}
+</script>
+</html>

@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.edit-form th{
+	padding-right:5px;
+	min-width:30px;
+	height:30px;
+	font-size:14px;
+	line-height:30px;
+	color:#333;
+	text-align:right;
+	}
+.edit-input{
+	width:200px;
+	height:28px;
+	border:1px #4a9ce9 solid;
+	outline-style:none;
+	}
+.edit-ta{
+	min-height:50px;
+	}
+.effe{
+	color:#666666;
+	}
+.submit,.reset{
+	width:70px;
+	height:30px;
+	font-size:14px;
+	float:left;
+	}
+.submit{
+	margin-right:20px;
+	border:1px #1f62bd solid;
+	background-color:#3d8ad9;
+	color:white;
+	}
+.submit:hover{
+	filter:alpha(opacity=90); 
+	-moz-opacity:0.9; 
+	opacity:0.9;
+	}
+.reset{
+	border:1px #1f62bd solid;
+	background-color:transparent;
+	color:#3d8ad9;
+	}
+.reset:hover{
+	background-color:#3d8ad9;
+	color:white;
+	}
+.btn-back{
+	margin-right:20px;
+	padding-left:30px;
+	width:30px;
+	height:30px;
+	float:left;
+	line-height:30px;
+	font-size:14px;
+	background-image:url(images/back_03.png);
+	background-repeat:no-repeat;
+	background-position:left center;
+	color:#3d8ad9;
+	}
+.btn-thd{
+	margin-left:20px;
+	margin-top:20px;
+	min-width:240px;
+	height:30px;
+	overflow:hidden;
+	}

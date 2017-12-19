@@ -1,0 +1,122 @@
+ 
+ a{
+ 	text-decoration:none;
+ 	color:#666;
+ 	}
+ a:hover{color:#666;}
+
+ .context{
+  	width:98%;
+  	margin: 1%
+  }
+  .head{
+  	width:100%;
+  	height:20px;
+  	border-bottom:solid 1px #333333;
+  }
+  .color{
+  	background: #f1f1f1;
+  }
+  .input_main{
+  	width:100%;
+  	height:55px;
+  	
+  }
+  .input_right{
+  	width: 60%;
+  	height:40px;
+  	margin-top:7.5px;
+  	border-radius:25px;
+  	float: right; 
+  	margin-right: 2%
+  }
+  .input_text{
+  	width:80%;
+  	margin: 2.5px 0 2.5px 3px;
+  	border: none;
+  	height: 90%;
+  	font-size: 15px;
+  }
+  .input_image{
+  	margin: -15px 0
+  }
+  .main{
+  	font-size: 15px;
+	color: #333333;
+	text-align: center;
+	line-height: normal
+  }
+  .color{
+  	background: #f1f1f1
+  }
+  .nav_main{
+  	width: 100%;
+  	height: 220px;
+  }
+  .nav_list{
+  	width: 30%;
+  	height: 90px;
+	margin-top:13px;
+	margin-left:2.5%;
+  	float: left;
+  	background: white;
+	font-family: 'Heiti SC 细体', 'Heiti SC';
+	font-weight: 200;
+	font-style: normal;
+	font-size: 15px;
+	line-height: 90px
+  }
+    .nav_list_red{
+  	width: 30%;
+  	height: 90px;
+	margin-top:13px;
+	margin-left:2.5%;
+  	float: left;
+  	background: white;
+	font-family: 'Heiti SC 细体', 'Heiti SC';
+	font-weight: 200;
+	font-style: normal;
+	font-size: 15px;
+	line-height: 90px;
+	color: red;
+  }
+  
+  .text_list{
+  	width: 100%;
+  	height: 280px;
+  }
+  .text_title{
+  	width: 94%;
+  	margin: 10px 3%;
+  	height:80px;
+  }
+  .text_imge{
+  	width:20%;
+  	height: 100%;
+  	float: left;
+  }
+  .text_info{
+  	float:right;
+  	width:78%;
+  	height: 100%;
+  }
+	.title{
+		font-size: 20px;
+		font-weight:bold;
+	}
+	.text_hr{
+		width: 100%;
+		height: 10px;
+		background: #f1f1f1;
+		border-top:solid 1px #333333;
+		clear: left;
+	}
+	.text_hr1{
+		width: 100%;
+		height: 10px;
+		clear: left;
+	}
+	.input_image1{
+	  	margin-top:10px;
+	  	margin-right: 5px;
+  	}

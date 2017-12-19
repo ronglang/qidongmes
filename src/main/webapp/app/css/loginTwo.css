@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+	/* background-color:red; */
+    width: 100%;
+    height: 99.5%;
+	text-align:center;
+}
+body{
+    padding-top: 1px;
+}
+.loginImg,.loginDiv_background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.loginDiv{
+	
+	/* display:inline-block; */
+	
+    
+    min-width:408px;   
+    min-height:369px;
+    width: 30%;
+    height: 57%;
+    position: relative;
+    z-index: 3;
+    margin: 0 auto;
+    top: 20%;
+}
+.loginInfoArea{
+	/* border:1px solid red; */
+	display:inline-block;
+    width: 99%;
+    height: 250px;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    text-align: center;
+
+}
+.loginArea{
+	line-height:35px;
+	text-align:left;
+	/* background-color:red; */
+    display: inline-block;
+    width: 239px;
+    height: 35px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    margin-left: 10px;
+
+    border-radius: 5px;
+}
+.loginArea input{
+	line-height:35px;
+	/* background-color:red; */
+    height:95%;
+    width: 100%;
+	display:inline-block;
+    float: right;
+    border: none;
+    outline: none;
+}
+img{
+	display:inline-block;
+    position: relative;
+    top: -12px;
+    left: 3px;
+}
+.doLogin{
+    width: 311px;
+    height: 35px;
+    border:1px solid #ccc;
+    border-top: 2px solid #ccc;
+    display: inline-block;
+    margin-top: 10px;
+    position:relative;
+    top:10px;
+    left:10px;
+    cursor: pointer;
+    background-image: url("../images/loginImageTwo/logindoLogin4_03.png");
+}
+.yanzhengma{
+ 
+    height: 30px;
+    width: 142px;
+   	border-radius: 4px; 
+    outline: #ccc;
+}

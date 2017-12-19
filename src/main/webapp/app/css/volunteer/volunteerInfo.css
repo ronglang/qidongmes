@@ -1,0 +1,171 @@
+	 *{
+ 	font-family: '微软雅黑'
+	}
+	.info_center{
+		width:94%;
+		padding:2%;
+  		/* border:solid 1px #666; */
+  		height:auto;
+	}
+	.inof_list{
+	  	width: 100%;
+	  	height: 200px;
+	}
+  	.info_title{
+		width: 100%;
+		margin: 20px 0;
+		height:100px;
+  	}
+	.inof_imageList{
+		width: 100%;
+		height: auto;
+		text-align: center;
+		background: #f4f4f4;
+	}
+	.info_head{
+		height: 140px;
+		border-bottom: solid 1px gray;
+		width: 100%
+	}
+	.help_num{
+		width: 99%;
+		height: 30px;
+		background: white;
+		line-height: 30px;
+		font-size: 15px;
+		color: #666;
+	}
+	.right{
+		float: right;
+	}
+	.left{
+		float: left;
+	}
+	.help_list{
+		width: 99%;
+		height: auto;
+		margin-top: 5px;
+		margin-bottom: 30%;
+	}
+	.help_item{
+		width: 99%;
+		height: 65px;
+		margin-left: 3%;
+		border-top: solid 1px #666;
+		padding: 20px 0; 
+		margin-top: 3px
+	}
+	.help_image{
+		width: 17%;
+		height: 65px;
+	}
+	.help_span{
+		line-height: 65px;
+		font-size: 15px;
+	}
+	.my_help{
+		width: 99%;
+		height: 65px;
+		background: #f1f1f1;
+		border: solid 1px #f1f1f1;
+		/* position:fixed;
+		top:90%;
+		left:0px; */
+		margin: 1px auto;
+	}
+	
+	.help_button{
+		background: red;
+		width: 60%;
+		height: 50px;
+		margin: 30px auto 0;
+		border-radius:20px;
+	}
+	.help_button_span{
+		margin-left:27%;
+		font-size: 25px;
+		color: white;
+		line-height: 50px
+	}
+	.help_button1{
+		color:white;
+		background: red;
+		height: 100%;
+		width: 99%;
+		border-radius:10px;
+		font-size: 17px;
+	}
+	.help_button2{
+		width: 30%;
+		height: 35px;
+		margin: 15px auto;
+		border-radius:10px;
+	}
+	.text_cont{
+		background:#f4f4f4;
+		width: 100%;
+		height: auto;
+		margin-top: 2px;
+		padding-top: 10px;
+	}
+	.text_info1{
+		width: 70%;
+		height: 100px;
+		color: #666
+	}
+	#txpeplo{
+		font-size: 13px;
+	}
+	#txtime{
+		font-size: 13px;
+	}
+	.inof_mp3{
+		margin-top:2px;
+		width: 100%;
+		height: auto;
+		text-align: center;
+		padding-top: 20px;
+		background: #f4f4f4;
+	}
+	.inof_mp4{
+		width: 100%;
+		height: auto;
+		text-align: center;
+		padding-bottom: 10px;
+		background: #f4f4f4;
+		margin-top: 2px;
+	}
+	.text_info1 span{
+		font-size: 13px;
+		line-height: 23px;
+	}
+	.text_imge1{
+		width: 28%;
+		height: 110px;
+	}
+	.help_text{
+		margin-top:3px;
+		width: 100%;
+		background: #f4f4f4;
+		height: 75px;
+	}
+	.f12{
+		font-size: 12px
+	}
+	.f11{
+		font-size: 11px
+	}
+	.help_title{
+		line-height: 55px;
+		font-weight: bold;
+	}
+	
+	.details_reply{
+		width: 100%;
+		height: auto;
+		border-bottom: solid 1px gray;
+		background: #f4f4f4;
+		text-align: center;
+		font-size: 13px;
+		line-height: 23px;
+	}

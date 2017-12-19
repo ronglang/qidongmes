@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    
+  <description>css haunghao permission taglib</description>
+  <display-name>permission taglib</display-name>
+  <tlib-version>1.0</tlib-version><!-- 版号 -->
+  <short-name>hhauth</short-name> <!-- 简单名称 -->
+  <uri>http://www.css-auth-lib.cn/</uri>  <!-- 引用路径 -->
+  <tag>
+    <description>权限校验标签，有权限就显示标签体的内容，否则不显示</description>
+    <name>cssauth</name> <!-- 标签名 -->
+    <tag-class>com.css.commcon.tag.permission.UserPermissionTag</tag-class> <!-- 标签类 -->
+    <body-content>JSP</body-content>
+    <attribute>
+        <description></description>
+        <name>authurl</name> <!-- 属性名 -->
+        <required>true</required> <!-- 标签的属性是否是必须的 -->
+        <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag> 
+</taglib>

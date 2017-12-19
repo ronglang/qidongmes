@@ -1,0 +1,370 @@
+@CHARSET "UTF-8";
+
+* {
+	font-size: 12px;
+}
+
+body {
+    font-family:verdana,helvetica,arial,sans-serif;
+    font-size:12px;
+    margin: 0;
+    padding:0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	list-style: none;
+}
+
+h2 {
+	font-size: 18px;
+	font-weight: bold;
+	margin: 0;
+	margin-bottom: 15px;
+}
+
+/*验证提示*/
+
+.l-table-edit-td {
+	/*width: 90px;
+	text-overflow: ellipsis;
+	word-break: keep-all;
+	overflow: hidden;
+	color: #6b6b6b;*/
+	padding-left: 10px;
+}
+
+/*.l-table-edit-td-width {
+	width: 80px;
+}
+
+.l-table-edit-tr {
+	height: 35px;
+}
+
+.l-table-form-ta {
+	margin-top: 5px;
+	margin-bottom: 5px
+}
+*/
+.l-table-edit-td-input {
+	width: 120px;
+}
+
+.l-button-submit,.l-button-test {
+	margin-top: 15px;
+	float: right;
+	margin-left: 10px;
+	/* padding-bottom: 2px; */
+	border:0px;
+	width: 84px;
+	height: 31px;
+	background-image: url(../img/u158.png);
+}
+
+.l-button-submit {
+	margin-bottom:35px;
+	width: 84px;
+	height: 31px;
+	background-image: url(../img/u156.png);
+}
+
+.l-verify-tip {
+	left: 230px;
+	top: 120px;
+}
+/**************list*****************/
+.list_edit {
+	background-repeat: no-repeat;
+	background: url(../img/list_edit.png) no-repeat;
+	width: 20px;
+	height: 20px;
+}
+
+.return {
+	float: right;
+	background: url(../img/return.png) no-repeat;
+	width: 50px;
+	background-position-x: 30px;
+}
+
+.btn-normal {
+	width: 80px;
+	height: 30px;
+	border: 1px #1f62bd solid;
+	background-color: #3d8ad9;
+	color: white;
+	font-size: 14px;
+	text-align: center;
+	line-height: 14px;
+	float: right;
+	margin: 0px 5px 5px 5px;
+}
+
+.btn-normal:hover {
+	filter: alpha(opacity = 90);
+	-moz-opacity: 0.9;
+	opacity: 0.9;
+}
+
+.btn-add { /* background-color:#64a7f1;
+	border:1px #0e6fbd solid;
+	color:white; */
+	border: 0px;
+	width: 52px;
+	height: 26px;
+	background-image: url(../img/u122.png);
+}
+.btn-authority {
+	border: 0px;
+	width: 110px;
+	height: 26px;
+	background-image: url(../img/u160.png);
+	
+}
+.btn-reset-password {
+	border: 0px;
+	width: 82px;
+	height: 26px;
+	background-image: url(../img/u161.png);
+	
+}
+.btn-export {
+	border: 0px;
+	width: 52px;
+	height: 26px;
+	background-image: url(../img/u132.png);
+}
+
+.btn-add:hover {
+	background-color: #70b0fa;
+}
+
+.btn-del { /* background-color:transparent; */
+	/* border:1px #f1515d solid; */
+	/* color:#f1515d; */
+	border: 0px;
+	width: 52px;
+	height: 26px;
+	background-image: url(../img/u124.png);
+}
+
+.btn-del:hover {
+	background-color: #f3636d;
+	color: white;
+}
+
+.btn-edit {
+	padding-left: 26px;
+	width: 70px;
+	background-color: transparent;
+	background-image: url(../img/edit_07.png);
+	background-position: 6px center;
+	background-repeat: no-repeat;
+	border: 1px #999 solid;
+	color: #4c4c4c;
+}
+
+.btn-save {
+	padding-left: 26px;
+	width: 70px;
+	background-color: transparent;
+	background-image: url(../img/butt-save.png);
+	background-position: 6px center;
+	background-repeat: no-repeat;
+	border: 1px #999 solid;
+	color: #4c4c4c;
+}
+
+.btn-edit:hover {
+	background-image: url(../img/btn_edit-hover_06.png);
+	background-color: #b3b3b3;
+	color: white;
+}
+
+.btn-search {
+	cursor: pointer;
+	padding-left: 26px;
+	width: 73px;
+	height:27px;
+	background-color: transparent;
+	background-image: url(../img/ListSearch.png);
+	/* background-position: 6px center; */
+	background-repeat: no-repeat;
+	border: 0px;
+	color: #0e6fbd;
+}
+
+/* .btn-search:hover {
+	background-image: url(../img/btn_seach-hover_03.png);
+	background-color: #64a7f1;
+	color: white;
+} */
+
+.btn-reset {
+	border-radius: 15px;
+	cursor: pointer;
+	width: 73px;
+	height:27px;
+	background-color: #fff;
+	background-image: url(../img/ListDele.png);
+	border: 0px #0e6fbd solid;
+	color: #0e6fbd;
+}
+
+.btn-export {
+	border-radius: 15px;
+	cursor: pointer;
+	width: 73px;
+	height:27px;
+	background-color: #fff;
+	background-image: url(../img/btn_export.png);
+	border: 0px #0e6fbd solid;
+	color: #0e6fbd;
+}
+
+/* .btn-reset:hover {
+	background-color: #64a7f1;
+	color: white;
+} */
+
+.uploadfile-show {
+	background: url(../img/delete_16.png) no-repeat;
+	width: 16px;
+	height: 16px;
+	float: left;
+	margin-right: 20px;
+}
+
+.chose_rad {
+	overflow: hidden;
+}
+
+.choserad-item {
+	float: left;
+	width: 40px;
+}
+
+.choserad-item input {
+	float: left;
+}
+
+.l-text .l-text-field {
+	height: 20px;
+	line-height: 20px;
+}
+
+.add_btn {
+	margin-left: 15px;
+	width: 22px;
+	height: 22px;
+	background: url(../img/setting_03.png) left center;
+}
+
+.add_btn:hover {
+	background: url(../img/setting_03.png) right center;
+}
+
+.btn-export {
+	border: 0px;
+	width: 60px;
+	height: 26px;
+	background-image: url(../img/btn_export.png);
+}
+
+.btn-export:hover {
+	background-color: #70b0fa;
+}
+#sort{
+			background-color: #0099CC;
+			color:white;
+			border:none;
+			width:80px;
+			height:25px;
+			cursor: pointer;
+			border-radius:5px;
+			margin-left:20px;
+		}
+/* 搜索或者查询按钮 */
+#btnSartch{
+	display: inline-block;
+	width: 80px;
+	height: 27px;
+	line-height: 27px;
+	background-color: #0099CC;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 14px;
+	color: white;
+	letter-spacing: 2px;
+	cursor: pointer;
+	border: none;
+	/* 禁止选中文本 */
+	-moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+    -ms-user-select: none;
+    user-select: none;
+}
+#btnSartch:hover{
+	background-color: #34B7E5;
+}
+/*重置按钮或其他按钮*/
+#btnReset{
+	display: inline-block;
+	width: 80px;
+	height: 27px;
+	line-height: 27px;
+	background-color: #FFAB95;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 14px;
+	color: white;
+	letter-spacing: 2px;
+	cursor: pointer;
+	border: none;
+	/* 禁止选中文本 */
+	-moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+    -ms-user-select: none;
+    user-select: none;
+}
+#btnReset:hover{
+	background-color: #FABCAF;
+}		
+		
+.noselect{
+	/* 禁止选中文本 */
+	-moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+   /*
+     Introduced in IE 10.
+     See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+   */
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+
+
+	

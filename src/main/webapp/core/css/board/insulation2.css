@@ -1,0 +1,42 @@
+body{
+	margin: 0;
+	padding: 0;
+	height: 800px;
+	background-color: #0084D4;
+}
+#two .top{
+	height: 80px;
+	background-color: #096ECC;
+}
+#two .top table{
+	width: 100%;
+	color: white;
+}
+#two .top table tr{
+	height: 80px;
+}
+#two .top table tr td{
+	text-align: center;
+	font-size: 18px;
+}
+#two .left{
+	float: left;
+}
+#two .right{
+	float: left;
+}
+#leftTop{
+	width: 600px;
+	height: 250px;
+	margin:10px auto;
+}
+#leftBottom{
+	width: 600px;
+	height: 250px;
+	margin:10px auto;
+}
+#rightImg{
+	width: 850px;
+	height: 450px;
+	margin:10px auto;
+}

@@ -1,0 +1,71 @@
+*{
+	font-family: '微软雅黑';
+	font-size: 12px
+}
+body{
+	background: #f1f1f1;
+}
+	
+}
+.already_cont{
+	width: 100%;
+	height: auto;
+	background: #f1f1f1;
+}
+.already_help_info{
+	width: 100%;
+	height: 90px;
+	background: #f1f1f1;
+	margin-bottom: 5px;
+}
+.already_help_image{
+	width: 25%;
+	height: 100%;
+	background: white;
+}
+.already_help_text{
+	width: 73%;
+	height: 100%;
+}
+.already_help_text span{
+	line-height: 30px;
+}
+.already_help_dynamic{
+	width:96%;
+	margin:0 2%;
+	height:35px;
+	text-align: center;
+	line-height: 35px;
+	margin: 50px 0 10px 0; 
+}
+.already_continue_help{
+	color: red;
+	margin-top: 5px;
+}
+.already_help_dynamic_list{
+	width: 100%;
+	height: 100px;
+	margin: 5px 0;
+	}
+.already_help_dynamic_iamge{
+	width: 30%;
+	height: 100%;
+}
+.already_help_dynamic_text{
+	line-height:55px;
+	width: 69%;
+	height: 100%;
+}
+.loading_more{
+	width:100%;
+	height:30px;
+	line-height:30px;
+	text-align: center;
+}
+.already_title{
+	float: right;
+	width: 99%;
+	height: 50px;
+	text-overflow :ellipsis;
+	overflow:hidden;
+}
